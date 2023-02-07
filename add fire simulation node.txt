@@ -1,0 +1,18 @@
+import hou
+
+# Create a new smoke simulation node
+def create_smoke_simulation_node():
+    node = hou.node("/obj").createNode("smoke", "smoke_simulation")
+    return node
+
+# Set the smoke simulation node's attributes
+def set_smoke_simulation_attributes(node):
+    node.parm("density").set(0.05)
+    node.parm("dissipation").set(0.98)
+    node.parm("fuel").set(0.05)
+    node.parm("temperature").set(300)
+    node.parm("velocity").set(0.1)
+
+# Create and set the smoke simulation node
+node = create_smoke_simulation_node()
+set_smoke_simulation_attributes(node)
